@@ -17,6 +17,10 @@ describe("Counter Tests", () => {
 		console.log("Testlerin başlangıcında sadece bir kere çalışacak");
 	});
 
+	afterAll(() => {
+		console.log("Testlerin sonunda sadece bir kere çalışacak");
+	});
+
 	test("increase button", () => {
 		userEvent.click(increaseButton);
 		expect(count).toHaveTextContent("1");
