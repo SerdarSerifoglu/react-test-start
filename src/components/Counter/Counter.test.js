@@ -3,18 +3,22 @@ import userEvent from "@testing-library/user-event";
 
 import Counter from "./index.js";
 
-test("increase button", () => {
-	render(<Counter></Counter>);
-	const count = screen.getByText("0");
-	const increaseButton = screen.getByText("Increase");
-	userEvent.click(increaseButton);
-	expect(count).toHaveTextContent("1");
-});
+describe("Counter Tests", () => {
+	let count, increaseButton, decreaseButton;
+	beforeEach(() => {
+		render(<Counter></Counter>);
+		count = screen.getByText("0");
+		increaseButton = screen.getByText("Increase");
+		decreaseButton = screen.getByText("Decrease");
+	});
 
-test("decrease button", () => {
-	render(<Counter></Counter>);
-	const count = screen.getByText("0");
-	const decreaseButton = screen.getByText("Decrease");
-	userEvent.click(decreaseButton);
-	expect(count).toHaveTextContent("1");
+	test("increase button", () => {
+		userEvent.click(increaseButton);
+		expect(count).toHaveTextContent("1");
+	});
+
+	test("decrease button", () => {
+		userEvent.click(decreaseButton);
+		expect(count).toHaveTextContent("1");
+	});
 });
