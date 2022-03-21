@@ -31,6 +31,7 @@ const Todo = () => {
 				value={text}
 				onChange={(e) => setText(e.target.value)}
 				onKeyPress={handleKeyPress}
+				aria-label="text-input"
 			></input>
 			<button onClick={buttonClick}>Add</button>
 			<br></br>
